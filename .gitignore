@@ -1,4 +1,4 @@
-# Node.js
+# Dependency directories
 node_modules/
 
 # Optional npm cache directory
@@ -6,3 +6,7 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# Ignore log files created by winston
+combined.log
+error.log
