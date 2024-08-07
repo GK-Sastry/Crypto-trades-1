@@ -10,3 +10,7 @@ node_modules/
 # Ignore log files created by winston
 combined.log
 error.log
+
+# Ignore directories where files are uploaded and errors are stored
+uploads/
+errors/
