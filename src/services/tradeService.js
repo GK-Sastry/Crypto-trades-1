@@ -11,12 +11,34 @@ const saveTradesBulk = async (trades) => {
   }
 
   try {
-    // Insert trades into the database
-    const result = await Trade.insertMany(trades, { ordered: false });
+    // Extract unique trades to insert
+    const uniqueTrades = [];
+    for (const trade of trades) {
+      const exists = await Trade.findOne({
+        userID: trade.userID,
+        utcTime: trade.utcTime,
+        operation: trade.operation,
+        baseCoin: trade.baseCoin,
+        quoteCoin: trade.quoteCoin,
+        amount: trade.amount,
+      });
 
-    // Log the number of documents inserted
-    logger.info(`Successfully inserted ${result.length} trades.`);
-    return result;
+      if (!exists) {
+        uniqueTrades.push(trade);
+      }
+    }
+
+    if (uniqueTrades.length > 0) {
+      // Insert unique trades into the database
+      const result = await Trade.insertMany(uniqueTrades, { ordered: false });
+
+      // Log the number of documents inserted
+      logger.info(`Successfully inserted ${result.length} trades.`);
+      return result;
+    } else {
+      logger.info("No new trades to insert.");
+      return [];
+    }
   } catch (error) {
     // Handle specific MongoDB errors
     if (error.name === "BulkWriteError") {
