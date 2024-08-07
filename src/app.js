@@ -3,6 +3,7 @@ const express = require("express");
 const connectDB = require("./configuration/db");
 const cors = require("cors");
 const tradeRoutes = require("./routes/tradeRoutes");
+const balanceRoutes = require("./routes/balanceRoutes");
 require("dotenv").config();
 
 const app = express();
@@ -15,7 +16,8 @@ app.use(express.json());
 connectDB();
 
 // Use routes
-app.use("/api1", tradeRoutes);
+app.use("/api", tradeRoutes);
+app.use("/api", balanceRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
