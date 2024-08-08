@@ -11,6 +11,11 @@ node_modules/
 combined.log
 error.log
 
-# Ignore directories where files are uploaded and errors are stored
-uploads/
-errors/
+# Ignore everything inside the uploads and errors folders
+uploads/*
+errors/*
+
+# But don't ignore the folders themselves or the .gitkeep files
+!uploads/.gitkeep
+!errors/.gitkeep
+
