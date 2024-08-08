@@ -1,0 +1,28 @@
+# Deployment template for crypto-trade-backend-app
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crypto-trade-backend-app
+  labels:
+    app: crypto-trade-backend-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crypto-trade-backend-app
+  template:
+    metadata:
+      labels:
+        app: crypto-trade-backend-app
+    spec:
+      containers:
+        - name: crypto-trade-backend-app
+          image: pranayreddy12/crypto-trade-backend-app:{{ .Values.image.tag }}
+          ports:
+            - containerPort: 5000
+          env:
+            - name: MONGODB_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: crypto-trade-config
+                  key: DATABASE_URL

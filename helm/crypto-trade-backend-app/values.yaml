@@ -1,0 +1,10 @@
+# Define the image settings for the application
+image:
+  # Repository URL for the Docker image
+  repository: pranayreddy12/crypto-trade-backend-app
+
+  # Policy for pulling the image; 'IfNotPresent' means the image will only be pulled if it is not already present locally
+  pullPolicy: IfNotPresent
+
+  # The tag for the Docker image; this overrides the default tag specified by the chart's appVersion
+  tag: "10302033410"

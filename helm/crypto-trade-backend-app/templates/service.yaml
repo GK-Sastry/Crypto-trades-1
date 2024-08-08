@@ -1,0 +1,15 @@
+# Service definition for crypto-trade-backend-app
+apiVersion: v1
+kind: Service
+metadata:
+  name: crypto-trade-backend-app
+  labels:
+    app: crypto-trade-backend-app
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 5000
+      protocol: TCP
+  selector:
+    app: crypto-trade-backend-app
