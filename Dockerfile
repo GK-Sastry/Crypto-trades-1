@@ -29,4 +29,4 @@ COPY --from=build /app .
 EXPOSE 5000
 
 # Run the application
-CMD ["./src/app.js"]
+CMD ["./src/server.js"]
