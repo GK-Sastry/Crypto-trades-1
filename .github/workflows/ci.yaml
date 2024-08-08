@@ -8,6 +8,7 @@ on:
       - main
     paths-ignore:
       - "README.md" # Ignore README.md changes to avoid triggering the workflow unnecessarily
+      - "helm/**" # Ignore helm changes to avoid triggering the workflow unnecessarily
 
 jobs:
   build:
