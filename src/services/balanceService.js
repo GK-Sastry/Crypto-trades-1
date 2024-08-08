@@ -38,6 +38,9 @@ const calculateAssetBalance = async (timestamp) => {
         balance[baseCoin] = 0;
       }
       balance[baseCoin] += operation === "buy" ? amount : -amount;
+
+      // Future extension: If baseCoin is also used as a quoteCoin, we can adjust balances accordingly
+      // This functionality can be extended to account for trades where baseCoin is used as quoteCoin
     });
 
     // Remove assets with zero balance
