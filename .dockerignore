@@ -1,0 +1,15 @@
+# Exclude environment configuration file to avoid exposing sensitive data
+.env
+
+# Exclude Git directory to avoid copying version control metadata and history
+.git
+
+# Exclude local node_modules directory as dependencies are handled in the Docker build stage
+node_modules
+
+# Exclude log file to avoid copying unnecessary logs
+npm-debug.log
+
+# Ignore log files created by winston
+combined.log
+error.log
