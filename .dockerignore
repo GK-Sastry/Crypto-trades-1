@@ -13,3 +13,6 @@ npm-debug.log
 # Ignore log files created by winston
 combined.log
 error.log
+
+# Ignore __tests__ folder
+__tests__
