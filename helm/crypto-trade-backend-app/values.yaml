@@ -7,4 +7,4 @@ image:
   pullPolicy: IfNotPresent
 
   # The tag for the Docker image; this overrides the default tag specified by the chart's appVersion
-  tag: "10302693294"
+  tag: "10469052562"
