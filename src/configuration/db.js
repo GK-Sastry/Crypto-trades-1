@@ -1,7 +1,7 @@
 // configuration/db.js
 const mongoose = require("mongoose");
 const logger = require("./logger");
-require("dotenv").config();
+require("dotenv").config({ path: "../.env" });
 const process = require("process");
 
 const connectDB = async () => {
