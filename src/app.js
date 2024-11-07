@@ -8,6 +8,7 @@ require("dotenv").config();
 const app = express();
 
 // Middleware
+//hey new commit.
 app.use(cors());
 app.use(express.json());
 
